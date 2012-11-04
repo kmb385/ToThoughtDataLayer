@@ -17,10 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
-@Table(name="POST_VIEW")
+@Table(name="V_POST")
 public class PostView {
 	
 	@Id
@@ -41,7 +39,7 @@ public class PostView {
 	@Column(name="POSTED_DT")
 	private Date postedDt;
 	
-	@Column(name="BODY")
+	@Column(name="BODY", columnDefinition="longtext")
 	private String body;
 	
 	@Column(name="TEASER")

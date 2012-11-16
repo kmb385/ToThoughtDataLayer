@@ -20,3 +20,11 @@ insert into POST_TAG VALUES(1, 1);
 insert into POST_TAG VALUES(1, 2);
 insert into POST_TAG VALUES(2, 1);
 insert into POST_TAG VALUES(3, 2);
+
+insert into IMAGE VALUES(1, 'Java.png', '.png',null);
+insert into IMAGE VALUES(2, 'Spring.png', '.png',null);
+
+insert into SKILL_CATEGORY VALUES(1, 'Programming Skills');
+insert into SKILL_CATEGORY VALUES(2, 'People Skills');
+
+insert into SKILL VALUES(1, 'Java', 5, 'The Java Programming Language', 'Oracle', 'http://www.java.com', 2, 1, 1);

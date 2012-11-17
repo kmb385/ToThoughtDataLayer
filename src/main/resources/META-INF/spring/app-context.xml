@@ -26,5 +26,5 @@
 	</bean>
  
  	<jpa:repositories base-package="org.tothought.repositories"></jpa:repositories>
- 	
+
 </beans>

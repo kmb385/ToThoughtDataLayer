@@ -22,7 +22,7 @@ public class Image {
 	@Column(name="TYPE")
 	public String type;
 	
-	@Column(name="FILE")
+	@Column(name="FILE", columnDefinition="longblob")
 	public byte[] file;
 
 	public Integer getImageId() {

@@ -26,7 +26,7 @@ public class Skill {
 	@Column(name = "RATING")
 	private Integer rating;
 
-	@Column(name = "DESCRIPTION")
+	@Column(name = "DESCRIPTION", columnDefinition="longtext")
 	private String description;
 
 	@Column(name = "PROVIDER")

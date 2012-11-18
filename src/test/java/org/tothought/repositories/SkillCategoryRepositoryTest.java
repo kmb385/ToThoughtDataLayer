@@ -24,6 +24,7 @@ public class SkillCategoryRepositoryTest {
 		SkillCategory skillCategory = repository.findOne(1);
 		assertNotNull(skillCategory);
 		assertEquals("Programming Skills", skillCategory.getName());
+		assertNotNull(skillCategory.getSkills());
 	}
 	
 	@Test

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,7 +27,7 @@ public class Skill {
 	@Column(name = "RATING")
 	private Integer rating;
 
-	@Column(name = "DESCRIPTION", columnDefinition="longtext")
+	@Column(name = "DESCRIPTION", columnDefinition = "longtext")
 	private String description;
 
 	@Column(name = "PROVIDER")
@@ -35,16 +36,16 @@ public class Skill {
 	@Column(name = "URL")
 	private String url;
 
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="TAG_ID")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "TAG_ID")
 	private Tag tag;
 
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="IMAGE_ID")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "IMAGE_ID")
 	private Image image;
 
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn(name="SKILL_CATEGORY_ID")
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "SKILL_CATEGORY_ID")
 	private SkillCategory skillCategory;
 
 	public Integer getSkillId() {
@@ -118,4 +119,48 @@ public class Skill {
 	public void setSkillCategory(SkillCategory skillCategory) {
 		this.skillCategory = skillCategory;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((provider == null) ? 0 : provider.hashCode());
+		result = prime * result + ((skillCategory == null) ? 0 : skillCategory.hashCode());
+		result = prime * result + ((skillId == null) ? 0 : skillId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Skill other = (Skill) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (provider == null) {
+			if (other.provider != null)
+				return false;
+		} else if (!provider.equals(other.provider))
+			return false;
+		if (skillCategory == null) {
+			if (other.skillCategory != null)
+				return false;
+		} else if (!skillCategory.equals(other.skillCategory))
+			return false;
+		if (skillId == null) {
+			if (other.skillId != null)
+				return false;
+		} else if (!skillId.equals(other.skillId))
+			return false;
+		return true;
+	}
+
 }

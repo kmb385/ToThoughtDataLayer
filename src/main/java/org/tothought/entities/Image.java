@@ -1,11 +1,15 @@
 package org.tothought.entities;
 
+import java.io.IOException;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="IMAGE")
@@ -24,7 +28,21 @@ public class Image {
 	
 	@Column(name="FILE", columnDefinition="longblob")
 	public byte[] file;
-
+	
+	public Image(){
+		
+	}
+	
+	public Image(MultipartFile file){
+		try {
+			this.file = file.getBytes();
+			this.name = file.getOriginalFilename();
+			this.type = file.getContentType();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Integer getImageId() {
 		return imageId;
 	}

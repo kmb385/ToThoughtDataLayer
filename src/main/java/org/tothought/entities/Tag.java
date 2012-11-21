@@ -38,6 +38,7 @@ public class Tag {
 	public void setTagId(Integer tagId) {
 		this.tagId = tagId;
 	}
+	
 	public String getName() {
 		return name;
 	}

@@ -36,7 +36,7 @@ public class Skill {
 	@Column(name = "URL")
 	private String url;
 
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "TAG_ID")
 	private Tag tag;
 

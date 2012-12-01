@@ -52,7 +52,7 @@ public class TestUtil {
 		experience.setStartDate(new Date());
 		experience.setEndDate(new Date());
 		experience.setPosition("Intern");
-		experience.setIsPresent('N');
+		experience.setIsPresent(false);
 		return experience;
 	}
 	

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.tothought.entities.Degree;
 import org.tothought.entities.Experience;
 import org.tothought.entities.ExperienceDetail;
 import org.tothought.entities.Image;
@@ -66,5 +67,18 @@ public class TestUtil {
 		ExperienceDetail experienceDetail = new ExperienceDetail();
 		experienceDetail.setDescription("I saved a bunch of money on my car insurance");
 		return experienceDetail;
+	}
+	
+	public static Degree createDegree(){
+		Degree degree = new Degree();
+		degree.setDegreeType("Diploma");
+		degree.setEmpahsis("Technology");
+		degree.setEndDate(new Date());
+		degree.setGpa("3.25");
+		degree.setInstitution("Mifflinburg Area High School");
+		degree.setPresent(false);
+		degree.setProgram("College Preparation");
+		degree.setStartDate(new Date());
+		return degree;
 	}
 }

@@ -25,7 +25,7 @@ public class Degree {
 	private String program;
 	
 	@Column(name="EMPHASIS")
-	private String empahsis;
+	private String emphasis;
 	
 	@Column(name="DEGREE_TYPE")
 	private String degreeType;
@@ -66,12 +66,12 @@ public class Degree {
 		this.program = program;
 	}
 
-	public String getEmpahsis() {
-		return empahsis;
+	public String getEmphasis() {
+		return emphasis;
 	}
 
-	public void setEmpahsis(String empahsis) {
-		this.empahsis = empahsis;
+	public void setEmphasis(String emphasis) {
+		this.emphasis = emphasis;
 	}
 
 	public String getDegreeType() {
@@ -106,11 +106,11 @@ public class Degree {
 		this.endDate = endDate;
 	}
 
-	public boolean isPresent() {
+	public boolean getIsPresent() {
 		return isPresent;
 	}
 
-	public void setPresent(boolean isPresent) {
+	public void setIsPresent(boolean isPresent) {
 		this.isPresent = isPresent;
 	}
 

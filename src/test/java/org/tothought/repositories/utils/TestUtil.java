@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.tothought.entities.Degree;
+import org.tothought.entities.DegreeDetail;
 import org.tothought.entities.Experience;
 import org.tothought.entities.ExperienceDetail;
 import org.tothought.entities.Image;
@@ -72,13 +73,19 @@ public class TestUtil {
 	public static Degree createDegree(){
 		Degree degree = new Degree();
 		degree.setDegreeType("Diploma");
-		degree.setEmpahsis("Technology");
+		degree.setEmphasis("Technology");
 		degree.setEndDate(new Date());
 		degree.setGpa("3.25");
 		degree.setInstitution("Mifflinburg Area High School");
-		degree.setPresent(false);
+		degree.setIsPresent(false);
 		degree.setProgram("College Preparation");
 		degree.setStartDate(new Date());
 		return degree;
+	}
+
+	public static DegreeDetail createDegreeDetail() {
+		DegreeDetail detail = new DegreeDetail();
+		detail.setDescription("this is a test");
+		return detail;
 	}
 }

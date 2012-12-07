@@ -44,3 +44,6 @@ insert into EXPERIENCE_TAG VALUES(3, 1, 4);
 
 insert into DEGREE VALUES(1, 'The Pennsylvania State University', 'Information Sciences and Technology', 'Design and Development', 'Bachelors of Science', '3.1', '2009-7-20','2009-7-20',0);
 insert into DEGREE VALUES(2, 'The Pennsylvania State University', 'Human Resource Management and Employment Relations', 'Training and Development', 'Masters', '4.0', '2009-7-20','2009-7-20',0);
+
+insert into DEGREE_DETAIL VALUES(1, 'Dean''s List 5 Semesters', 1);
+insert into DEGREE_DETAIL VALUES(2, 'Excellent IT Student 3 Semesters', 1);

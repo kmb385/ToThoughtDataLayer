@@ -3,6 +3,7 @@ package org.tothought.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.tothought.entities.Degree;
+import org.tothought.entities.DegreeDetail;
 import org.tothought.repositories.utils.TestUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,14 +33,17 @@ public class DegreeRepositoryTest {
 	@Test
 	public void insertTagTest() {
 		Degree degree = TestUtil.createDegree();
+		DegreeDetail detail = TestUtil.createDegreeDetail();
+		degree.getDegreeDetails().add(detail);
 		
 		repository.save(degree);
 
 		Degree dbDegree = repository.findOne(degree.getDegreeId());
 		assertNotNull(dbDegree);
 		assertEquals(degree.getInstitution(), dbDegree.getInstitution());
-		assertEquals(degree.getEmpahsis(), dbDegree.getEmpahsis());
+		assertEquals(degree.getEmphasis(), dbDegree.getEmphasis());
 		assertEquals(degree.getProgram(), dbDegree.getProgram());
+		assertTrue(degree.getDegreeDetails().size() > 0);
 	}
 
 	@Test
@@ -46,11 +51,15 @@ public class DegreeRepositoryTest {
 		String program = "Basket Weaving Sciences";
 		
 		Degree degree = repository.findOne(1);
+		DegreeDetail detail = TestUtil.createDegreeDetail();
+		
+		degree.getDegreeDetails().add(detail);
 		degree.setProgram(program);
 
 		Degree dbDegree = repository.findOne(degree.getDegreeId());
 		assertNotNull(dbDegree);
 		assertEquals(program, dbDegree.getProgram());
+		assertTrue(dbDegree.getDegreeDetails().size() > 1);
 	}
 
 	@Test

@@ -11,6 +11,7 @@
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>		
 			<property name="hibernate.hbm2ddl.auto" value="validate"/>		
+<!--		<property name="hibernate.hbm2ddl.auto" value="update"/> -->		
 		</properties>
 	</persistence-unit>
 	<persistence-unit name="toThoughtTest" transaction-type="RESOURCE_LOCAL">

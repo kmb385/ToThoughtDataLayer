@@ -42,7 +42,7 @@ public class PostView {
 	@Column(name="BODY", columnDefinition="longtext")
 	private String body;
 	
-	@Column(name="TEASER")
+	@Column(name="TEASER", columnDefinition="longtext")
 	private String teaser;
 	
 	@ManyToMany(cascade={CascadeType.ALL}, targetEntity=Tag.class)

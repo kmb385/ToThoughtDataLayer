@@ -41,6 +41,9 @@ public class Post {
 	@Column(name="POSTED_DT")
 	Date postedDt;
 	
+	@Column(name="SOURCE_CODE", columnDefinition="mediumtext")
+	String sourceCode;
+	
 	@ManyToMany(cascade={CascadeType.ALL}, targetEntity=Tag.class)
 	@JoinTable(name="POST_TAG", joinColumns={@JoinColumn(name="POST_ID", referencedColumnName="POST_ID")},
 	inverseJoinColumns={@JoinColumn(name="TAG_ID", referencedColumnName="TAG_ID")})
@@ -84,6 +87,14 @@ public class Post {
 
 	public void setPostedDt(Date postedDt) {
 		this.postedDt = postedDt;
+	}
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
 	}
 
 	public List<Tag> getTags() {

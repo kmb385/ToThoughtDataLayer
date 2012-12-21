@@ -39,6 +39,9 @@ public class PostView {
 	@Column(name="POSTED_DT")
 	private Date postedDt;
 	
+	@Column(name="SOURCE_CODE", columnDefinition="mediumtext" )
+	private String sourceCode;
+	
 	@Column(name="BODY", columnDefinition="longtext")
 	private String body;
 	
@@ -90,6 +93,14 @@ public class PostView {
 		this.postedDt = postedDt;
 	}
 	
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
+	}
+
 	public String getBody() {
 		return body;
 	}

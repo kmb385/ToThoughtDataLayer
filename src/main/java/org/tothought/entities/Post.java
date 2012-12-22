@@ -17,8 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name="POST")
 public class Post {
@@ -44,7 +42,7 @@ public class Post {
 	@Column(name="SOURCE_CODE", columnDefinition="mediumtext")
 	String sourceCode;
 	
-	@ManyToMany(cascade={CascadeType.ALL}, targetEntity=Tag.class)
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, targetEntity=Tag.class)
 	@JoinTable(name="POST_TAG", joinColumns={@JoinColumn(name="POST_ID", referencedColumnName="POST_ID")},
 	inverseJoinColumns={@JoinColumn(name="TAG_ID", referencedColumnName="TAG_ID")})
 	public List<Tag> tags = new ArrayList<Tag>();
@@ -109,10 +107,9 @@ public class Post {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((postId == null) ? 0 : postId.hashCode());
-		result = prime * result
-				+ ((postPart == null) ? 0 : postPart.hashCode());
-		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((postPart == null) ? 0 : postPart.hashCode());
+		result = prime * result + ((postedDt == null) ? 0 : postedDt.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -126,20 +123,20 @@ public class Post {
 		if (getClass() != obj.getClass())
 			return false;
 		Post other = (Post) obj;
-		if (postId == null) {
-			if (other.postId != null)
+		if (author == null) {
+			if (other.author != null)
 				return false;
-		} else if (!postId.equals(other.postId))
+		} else if (!author.equals(other.author))
 			return false;
 		if (postPart == null) {
 			if (other.postPart != null)
 				return false;
 		} else if (!postPart.equals(other.postPart))
 			return false;
-		if (tags == null) {
-			if (other.tags != null)
+		if (postedDt == null) {
+			if (other.postedDt != null)
 				return false;
-		} else if (!tags.equals(other.tags))
+		} else if (!postedDt.equals(other.postedDt))
 			return false;
 		if (title == null) {
 			if (other.title != null)
@@ -147,5 +144,7 @@ public class Post {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
-	}	
+	}
+
+	
 }

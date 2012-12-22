@@ -36,7 +36,7 @@ public class Skill {
 	@Column(name = "URL")
 	private String url;
 
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinColumn(name = "TAG_ID")
 	private Tag tag;
 
@@ -44,7 +44,7 @@ public class Skill {
 	@JoinColumn(name = "IMAGE_ID")
 	private Image image;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SKILL_CATEGORY_ID")
 	private SkillCategory skillCategory;
 

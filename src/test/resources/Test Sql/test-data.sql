@@ -11,10 +11,10 @@ insert into TAG VALUES(3, 'Delete');
 insert into TAG VALUES(4, 'Spring Data');
 
 /* POSTS */
-insert into POST VALUES(1, 'My first post', 'Kevin Bowersox', 1, '2012-10-12');
-insert into POST VALUES(2, 'My first post', 'Kevin Bowersox', 2, '2012-10-12');
-insert into POST VALUES(3, 'My first post', 'Kevin Bowersox', 3, '2012-10-12');
-insert into POST VALUES(4, 'My first post', 'Kevin Bowersox', 4, '2012-10-12');
+insert into POST VALUES(1, 'My first post', 'Kevin Bowersox', 1, null, '2012-10-12');
+insert into POST VALUES(2, 'My first post', 'Kevin Bowersox', 2, null, '2012-10-12');
+insert into POST VALUES(3, 'My first post', 'Kevin Bowersox', 3, null, '2012-10-12');
+insert into POST VALUES(4, 'My first post', 'Kevin Bowersox', 4, null, '2012-10-12');
 
 insert into POST_TAG VALUES(1, 1);
 insert into POST_TAG VALUES(1, 2);
@@ -47,3 +47,6 @@ insert into DEGREE VALUES(2, 'The Pennsylvania State University', 'Human Resourc
 
 insert into DEGREE_DETAIL VALUES(1, 'Dean''s List 5 Semesters', 1);
 insert into DEGREE_DETAIL VALUES(2, 'Excellent IT Student 3 Semesters', 1);
+
+insert into COMMENT VALUES (1, 'John Doe', 'joe@gmail.com', 'www.google.com', 'This is a greate post', 3, '2012-7-20', 1);
+insert into COMMENT VALUES (2, 'John Doe', 'joe@gmail.com', 'www.google.com', 'This is a greate post', 3, '2012-7-20', 1);

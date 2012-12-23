@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.tothought.entities.Comment;
 import org.tothought.entities.Degree;
 import org.tothought.entities.DegreeDetail;
 import org.tothought.entities.Experience;
@@ -87,5 +88,16 @@ public class TestUtil {
 		DegreeDetail detail = new DegreeDetail();
 		detail.setDescription("this is a test");
 		return detail;
+	}
+	
+	public static Comment createComment(){
+		Comment comment = new Comment();
+		comment.setAuthor("Jack Doe");
+		comment.setBody("This post wasn't so great");
+		comment.setEmail("jack.doe@gmail.com");
+		comment.setPostedDt(new Date());
+		comment.setRating(2);
+		comment.setSite("www.google.com");
+		return comment;
 	}
 }

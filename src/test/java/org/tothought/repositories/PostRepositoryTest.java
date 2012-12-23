@@ -14,9 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.tothought.entities.Comment;
 import org.tothought.entities.Post;
 import org.tothought.entities.PostPart;
 import org.tothought.entities.Tag;
+import org.tothought.repositories.utils.TestUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
@@ -70,6 +72,8 @@ public class PostRepositoryTest {
 		Post post = new Post();
 		PostPart postPart = new PostPart();
 		Tag tag = new Tag();
+		Comment comment = TestUtil.createComment();
+		Comment comment2 = TestUtil.createComment();
 		
 		post.setAuthor("Kevin");
 		post.setPostedDt(new Date());
@@ -77,6 +81,8 @@ public class PostRepositoryTest {
 		
 		tag.setName(tagName);
 		post.getTags().add(tag);
+		post.getComments().add(comment);
+		post.getComments().add(comment2);
 		
 		postPart.setBody(body);
 		post.setPostPart(postPart);
@@ -88,10 +94,8 @@ public class PostRepositoryTest {
 		assertNotNull(dbPost);
 		assertEquals(body, dbPost.getPostPart().getBody());
 		assertEquals(tagName, dbPost.getTags().get(0).getName());
-		
-		List<Tag> dbTags = tagRepository.findByName(tagName);
-		assertNotNull(dbTags);
-		assertTrue(dbTags.size() == 1);
+		assertTrue(dbPost.getTags().size() == 1);
+		assertTrue(dbPost.getComments().size() == 2);
 	}
 	
 	@Test

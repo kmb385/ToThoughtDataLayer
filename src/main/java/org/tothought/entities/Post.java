@@ -14,12 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="POST")
-public class Post {
+public class Post{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,8 +46,12 @@ public class Post {
 	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, targetEntity=Tag.class)
 	@JoinTable(name="POST_TAG", joinColumns={@JoinColumn(name="POST_ID", referencedColumnName="POST_ID")},
 	inverseJoinColumns={@JoinColumn(name="TAG_ID", referencedColumnName="TAG_ID")})
-	public List<Tag> tags = new ArrayList<Tag>();
+	private List<Tag> tags = new ArrayList<Tag>();
 
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="POST_ID")
+	private List<Comment> comments = new ArrayList<Comment>();
+	
 	public Integer getPostId() {
 		return postId;
 	}
@@ -102,6 +107,14 @@ public class Post {
 	public void setTags(List<Tag> tags) {
 		this.tags = tags;
 	}
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	@Override
 	public int hashCode() {
@@ -145,6 +158,5 @@ public class Post {
 			return false;
 		return true;
 	}
-
 	
 }

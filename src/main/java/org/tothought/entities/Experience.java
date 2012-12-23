@@ -48,7 +48,7 @@ public class Experience {
 	@JoinColumn(name="EXPERIENCE_ID")
 	private List<ExperienceDetail> experienceDetails = new ArrayList<ExperienceDetail>();
 
-	@ManyToMany(cascade = { CascadeType.ALL }, targetEntity = Tag.class)
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, targetEntity = Tag.class)
 	@JoinTable(name = "EXPERIENCE_TAG", joinColumns = { @JoinColumn(name = "EXPERIENCE_ID", referencedColumnName = "EXPERIENCE_ID") }, inverseJoinColumns = { @JoinColumn(name = "TAG_ID", referencedColumnName = "TAG_ID") })
 	private List<Tag> tags = new ArrayList<Tag>();
 

@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -50,6 +51,7 @@ public class Post{
 
 	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="POST_ID")
+	@OrderBy("postedDt DESC")
 	private List<Comment> comments = new ArrayList<Comment>();
 	
 	public Integer getPostId() {

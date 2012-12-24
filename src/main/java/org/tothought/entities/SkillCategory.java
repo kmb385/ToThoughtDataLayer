@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +27,7 @@ public class SkillCategory {
 	private String name;
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="skillCategory", fetch=FetchType.LAZY)
+	@OrderBy("name")
 	public List<Skill> skills = new ArrayList<Skill>();
 	
 	public Integer getSkillCategoryId() {

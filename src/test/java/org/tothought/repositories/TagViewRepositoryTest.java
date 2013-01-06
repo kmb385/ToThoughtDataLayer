@@ -12,7 +12,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import org.tothought.entities.TagView;
+import org.tothought.views.TagView;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration

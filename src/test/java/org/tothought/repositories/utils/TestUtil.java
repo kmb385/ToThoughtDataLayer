@@ -6,6 +6,8 @@ import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.tothought.entities.Comment;
+import org.tothought.entities.Commit;
+import org.tothought.entities.DataLoadLogEntry;
 import org.tothought.entities.Degree;
 import org.tothought.entities.DegreeDetail;
 import org.tothought.entities.Experience;
@@ -55,7 +57,7 @@ public class TestUtil {
 		experience.setStartDate(new Date());
 		experience.setEndDate(new Date());
 		experience.setPosition("Intern");
-		experience.setIsPresent(false);
+		experience.setIsPresent(true);
 		return experience;
 	}
 	
@@ -99,5 +101,23 @@ public class TestUtil {
 		comment.setRating(2);
 		comment.setSite("www.google.com");
 		return comment;
+	}
+	
+	public static Commit createCommit(){
+		Commit commit = new Commit();
+		commit.setApiUrl("https://api.github.com/repos/kmb385/SimplePersist/commits/c289a4f2d3b199df8488da93634f3b77e3b41324");
+		commit.setHtmlUrl("https://github.com/kmb385/SimplePersist/commits/c289a4f2d3b199df8488da93634f3b77e3b41324");
+		commit.setSha("c5cd6d3ae2e93c8af3fcc41cd5816d7e0d549c03");
+		commit.setTitle("Saving Entities");
+		return commit;
+	}
+	
+	public static DataLoadLogEntry createDataLoadLogEntry(){
+		DataLoadLogEntry dlle = new DataLoadLogEntry();
+		dlle.setDataCurrentDt(new Date());
+		dlle.setRunDt(new Date());
+		dlle.setLoadName("GITHUB");
+		dlle.setRecordsAdded(33);
+		return dlle;
 	}
 }

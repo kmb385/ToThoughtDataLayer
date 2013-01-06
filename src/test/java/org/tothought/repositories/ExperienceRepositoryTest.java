@@ -26,6 +26,8 @@ public class ExperienceRepositoryTest {
 	@Autowired
 	ExperienceRepository repository;
 	
+	@Autowired
+	TagRepository tagRepository;
 	
 	@Test
 	public void findOneTest(){
@@ -49,6 +51,27 @@ public class ExperienceRepositoryTest {
 	@Test
 	public void testInsertAdvanced() throws IOException {
 		Tag tag = TestUtil.createTag();
+		ExperienceDetail experienceDetail = TestUtil.createExperienceDetail();
+		
+		Experience experience = TestUtil.createExperience();;
+		experience.getExperienceDetails().add(experienceDetail);
+		experience.getTags().add(tag);
+		
+		repository.save(experience);
+		
+		Experience dbExperience = repository.findOne(experience.getExperienceId());
+		assertNotNull(dbExperience);
+		assertEquals(experience.getDescription(), dbExperience.getDescription());
+		assertEquals(experience.getPosition(), dbExperience.getPosition());
+		assertTrue(dbExperience.getTags().size()>0);
+		assertTrue(dbExperience.getExperienceDetails().size() > 0);
+		assertEquals(tag.getName(), experience.getTags().get(0).getName());
+		assertEquals(experienceDetail.getDescription(), experience.getExperienceDetails().get(0).getDescription());
+	}
+
+	@Test
+	public void testInsertAdvanced2() throws IOException {
+		Tag tag = tagRepository.findOne(1);
 		ExperienceDetail experienceDetail = TestUtil.createExperienceDetail();
 		
 		Experience experience = TestUtil.createExperience();;

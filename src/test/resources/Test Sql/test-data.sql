@@ -29,8 +29,8 @@ insert into SKILL_CATEGORY VALUES(2, 'People Skills');
 
 insert into SKILL VALUES(1, 'Java', 5, 'The Java Programming Language', 'Oracle', 'http://www.java.com', 2, 1, 1);
 
-insert into EXPERIENCE VALUES(1, '2009-7-20', '2012-11-20', 'This is my current position', 'Web Application Developer', 'NAVSUP BSC', 'N');
-insert into EXPERIENCE VALUES(2, '2008-1-1', '2009-7-20', 'This is was my former position', 'Cognos Developer', 'BI Solutions', 'N');
+insert into EXPERIENCE VALUES(1, '2009-7-20', '2012-11-20', 'This is my current position', 'Web Application Developer', 'NAVSUP BSC', 1);
+insert into EXPERIENCE VALUES(2, '2008-1-1', '2009-7-20', 'This is was my former position', 'Cognos Developer', 'BI Solutions', 1);
 
 insert into EXPERIENCE_DETAIL VALUES(1, 'I wrote a bunch of clean code.', 1);
 insert into EXPERIENCE_DETAIL VALUES(2, 'I worked with ORMs', 1);
@@ -50,3 +50,10 @@ insert into DEGREE_DETAIL VALUES(2, 'Excellent IT Student 3 Semesters', 1);
 
 insert into COMMENT VALUES (1, 'John Doe', 'joe@gmail.com', 'www.google.com', 'This is a greate post', 3, '2012-7-20', 1);
 insert into COMMENT VALUES (2, 'John Doe', 'joe@gmail.com', 'www.google.com', 'This is a greate post', 3, '2012-7-20', 1);
+
+insert into COMMIT values (1, 'Testing commit repo', 'apiUrl1', 'htmlUrl1', 'sha1', '2013-1-3', 'A Message');
+insert into COMMIT values (2, 'Testing commit repo2', 'apiUrl2', 'htmlUrl2', 'sha2', '2013-1-3', 'A Message');
+
+insert into DATA_LOAD_LOG_ENTRY values(1, 'GITHUB', 22, '2012-7-20', '2013-1-3');
+insert into DATA_LOAD_LOG_ENTRY values(2, 'STACKOVERFLOW', 32, '2012-1-20', '2013-1-7');
+insert into DATA_LOAD_LOG_ENTRY values(3, 'GITHUB', 55, '2012-1-20', '2013-1-3');

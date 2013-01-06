@@ -1,4 +1,4 @@
-package org.tothought.entities;
+package org.tothought.views;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,6 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+import org.tothought.entities.Comment;
+import org.tothought.entities.PostPart;
+import org.tothought.entities.Tag;
 
 @Entity
 @Table(name="V_POST")

@@ -1,4 +1,4 @@
-package org.tothought.entities;
+package org.tothought.views;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

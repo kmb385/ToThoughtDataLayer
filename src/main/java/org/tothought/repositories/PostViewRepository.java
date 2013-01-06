@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-import org.tothought.entities.PostView;
+import org.tothought.views.PostView;
 
 @Transactional(readOnly = true)
 public interface PostViewRepository extends JpaRepository<PostView, Integer> {

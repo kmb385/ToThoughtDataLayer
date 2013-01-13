@@ -54,6 +54,9 @@ insert into COMMENT VALUES (2, 'John Doe', 'joe@gmail.com', 'www.google.com', 'T
 insert into COMMIT values (1, 'Testing commit repo', 'apiUrl1', 'htmlUrl1', 'sha1', '2013-1-3', 'A Message');
 insert into COMMIT values (2, 'Testing commit repo2', 'apiUrl2', 'htmlUrl2', 'sha2', '2013-1-3', 'A Message');
 
+insert into COMMIT_TAG values(1,2);
+insert into COMMIT_TAG values(2,2);
+
 insert into DATA_LOAD_LOG_ENTRY values(1, 'GITHUB', 22, '2012-7-20', '2013-1-3');
 insert into DATA_LOAD_LOG_ENTRY values(2, 'STACKOVERFLOW', 32, '2012-1-20', '2013-1-7');
 insert into DATA_LOAD_LOG_ENTRY values(3, 'GITHUB', 55, '2012-1-20', '2013-1-3');

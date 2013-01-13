@@ -3,10 +3,15 @@ package org.tothought.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +35,33 @@ public class CommitRepositoryTest {
 		Commit commit= repository.findOne(1);
 		assertNotNull(commit);
 		assertEquals("htmlUrl1", commit.getHtmlUrl());
+	}
+	
+	@Test
+	public void findByTagTest(){
+		List<Commit> commits = repository.findByTag("Java");
+		assertNotNull(commits);
+		assertEquals(2, commits.size());
+	}
+	
+	@Test
+	public void findAllPageableTest(){
+		//Pages are 0 indexed
+		Page<Commit> page = repository.pageByTag("Java", new PageRequest(0,2));
+		List<Commit> commits = page.getContent();
+
+		assertNotNull(commits);
+		assertEquals(2, page.getSize());
+		assertEquals(2, commits.size());
+		assertTrue(commits.get(0).getTags().size() > 0);
+	}
+
+
+	@Test
+	public void findByTagNameTest(){
+		List<Commit> commits= repository.findByTag("Java");
+		assertNotNull(commits);
+		assertTrue(commits.size() > 0);
 	}
 	
 	@Test

@@ -33,10 +33,6 @@ public class DegreeValidator implements Validator {
 			errors.rejectValue("gpa", "gpa.invalid");
 		}
 		
-		
-
-		
-
 	}
 
 }

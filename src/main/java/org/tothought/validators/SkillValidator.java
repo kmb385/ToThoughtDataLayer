@@ -15,7 +15,6 @@ public class SkillValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.empty");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "skillCategory", "skillCategory.empty");
 		ValidationUtils.rejectIfEmpty(errors, "rating", "rating.empty");
-
 	}
 
 }

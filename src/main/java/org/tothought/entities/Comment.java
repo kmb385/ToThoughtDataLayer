@@ -32,6 +32,9 @@ public class Comment {
 	@Column(name="BODY", columnDefinition="mediumtext")
 	private String body;
 	
+	@Column(name="IP_ADDRESS")
+	private String ipAddress;
+	
 	@Column(name="RATING")
 	private Integer rating;
 	
@@ -80,6 +83,14 @@ public class Comment {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
 	}
 
 	public Integer getRating() {

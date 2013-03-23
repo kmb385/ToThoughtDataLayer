@@ -17,11 +17,12 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.tothought.entities.interfaces.SkillDetail;
 import org.tothought.jackson.LongDateDeserializer;
 
 @Entity
 @Table(name = "STACK_OVERFLOW_ANSWER")
-public class StackOverflowAnswer {
+public class StackOverflowAnswer implements SkillDetail{
 
 	@Id
 	@Column(name = "STACK_OVERFLOW_ANSWER_ID")
@@ -142,6 +143,10 @@ public class StackOverflowAnswer {
 		} else if (!url.equals(other.url))
 			return false;
 		return true;
+	}
+
+	public Integer getId() {
+		return this.answerId;
 	}
 
 }

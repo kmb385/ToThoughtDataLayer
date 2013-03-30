@@ -18,11 +18,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.eclipse.egit.github.core.RepositoryCommit;
+import org.tothought.entities.interfaces.SkillDetail;
+import org.tothought.jackson.DateSerializer;
 
 @Entity
 @Table(name = "COMMIT")
-public class Commit {
+public class Commit implements SkillDetail{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -193,6 +196,19 @@ public class Commit {
 		} else if (!title.equals(other.title))
 			return false;
 		return true;
+	}
+
+	public Integer getId() {
+		return this.commitId;
+	}
+
+	public String getUrl() {
+		return this.htmlUrl;
+	}
+	
+	@JsonSerialize(using=DateSerializer.class)
+	public Date getCreatedDt() {
+		return this.getCommitDt();
 	}
 	
 }

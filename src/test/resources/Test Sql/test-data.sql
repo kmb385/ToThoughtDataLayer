@@ -60,3 +60,6 @@ insert into COMMIT_TAG values(2,2);
 insert into DATA_LOAD_LOG_ENTRY values(1, 'GITHUB', 22, '2012-7-20', '2013-1-3');
 insert into DATA_LOAD_LOG_ENTRY values(2, 'STACKOVERFLOW', 32, '2012-1-20', '2013-1-7');
 insert into DATA_LOAD_LOG_ENTRY values(3, 'GITHUB', 55, '2012-1-20', '2013-1-3');
+
+insert into STACK_OVERFLOW_ANSWER values(1, 'Configuring Spring', 'http://www.google.com', '2013-3-3');
+insert into STACK_OVERFLOW_ANSWER values(2, 'Configuring JPA', 'http://www.google.com', '2013-3-3');

@@ -18,8 +18,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.eclipse.egit.github.core.RepositoryCommit;
 import org.tothought.entities.interfaces.SkillDetail;
+import org.tothought.jackson.DateSerializer;
 
 @Entity
 @Table(name = "COMMIT")
@@ -203,7 +205,8 @@ public class Commit implements SkillDetail{
 	public String getUrl() {
 		return this.htmlUrl;
 	}
-
+	
+	@JsonSerialize(using=DateSerializer.class)
 	public Date getCreatedDt() {
 		return this.getCommitDt();
 	}

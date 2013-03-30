@@ -17,7 +17,9 @@ import javax.persistence.Table;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.tothought.entities.interfaces.SkillDetail;
+import org.tothought.jackson.DateSerializer;
 import org.tothought.jackson.LongDateDeserializer;
 
 @Entity
@@ -69,6 +71,7 @@ public class StackOverflowAnswer implements SkillDetail{
 		this.url = url;
 	}
 
+	@JsonSerialize(using=DateSerializer.class)
 	@JsonDeserialize(using=LongDateDeserializer.class)
 	@JsonProperty("creation_date")
 	public Date getCreatedDt() {
